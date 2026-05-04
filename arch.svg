@@ -1,0 +1,108 @@
+<svg width="760" height="560" viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --card: #f8fafc;
+      --border: #cbd5f5;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --warn: #ca8a04;
+      --danger: #dc2626;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --card: #1e293b;
+        --border: #334155;
+        --accent: #38bdf8;
+        --success: #22c55e;
+        --warn: #facc15;
+        --danger: #ef4444;
+      }
+    }
+
+    .title { font-size: 20px; font-weight: 600; fill: var(--text); }
+    .subtitle { font-size: 13px; fill: var(--muted); }
+    .box { fill: var(--card); stroke: var(--border); stroke-width: 1.5; }
+    .contract { fill: none; stroke: var(--success); stroke-width: 1.8; }
+    .text { font-size: 13px; fill: var(--text); text-anchor: middle; dominant-baseline: middle; }
+    .accent { stroke: var(--accent); fill: var(--accent); }
+    .success { stroke: var(--success); fill: var(--success); }
+    .danger { stroke: var(--danger); fill: var(--danger); }
+  </style>
+
+  <!-- Title -->
+  <text x="380" y="40" text-anchor="middle" class="title">
+    KwesPay Payment Flow
+  </text>
+
+  <text x="380" y="65" text-anchor="middle" class="subtitle">
+    Signed → Verified → Settled (No Custody)
+  </text>
+
+  <!-- Step 1 -->
+  <rect x="260" y="100" width="240" height="44" rx="10" class="box"></rect>
+  <text x="380" y="122" class="text">Backend signs payment</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="144" x2="380" y2="174" class="accent"></line>
+  <polygon points="375,174 385,174 380,182" class="accent"></polygon>
+
+  <!-- Step 2 -->
+  <rect x="260" y="182" width="240" height="44" rx="10" class="box"></rect>
+  <text x="380" y="204" class="text">Customer submits transaction</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="226" x2="380" y2="256" class="accent"></line>
+  <polygon points="375,256 385,256 380,264" class="accent"></polygon>
+
+  <!-- Contract -->
+  <rect x="240" y="264" width="280" height="56" rx="12" class="contract"></rect>
+  <text x="380" y="292" class="text" style="font-weight:600;">Payment.sol (verification)</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="320" x2="380" y2="350" class="success"></line>
+  <polygon points="375,350 385,350 380,358" class="success"></polygon>
+
+  <!-- Decision -->
+  <rect x="260" y="358" width="240" height="44" rx="10" class="box"></rect>
+  <text x="380" y="380" class="text">Valid and not expired</text>
+
+  <!-- No -->
+  <line x1="260" y1="380" x2="170" y2="380" class="danger"></line>
+  <text x="150" y="372" style="font-size:12px; fill:var(--danger);">No</text>
+
+  <rect x="90" y="358" width="80" height="44" rx="10" fill="none" stroke="var(--danger)" stroke-width="1.5"></rect>
+  <text x="130" y="380" class="text" style="fill:var(--danger);">Revert</text>
+
+  <!-- Yes -->
+  <line x1="380" y1="402" x2="380" y2="432" class="success"></line>
+  <text x="392" y="420" style="font-size:12px; fill:var(--success);">Yes</text>
+  <polygon points="375,432 385,432 380,440" class="success"></polygon>
+
+  <!-- Split -->
+  <rect x="260" y="440" width="240" height="44" rx="10" class="box"></rect>
+  <text x="380" y="462" class="text">Atomic fund split</text>
+
+  <!-- Outputs -->
+  <line x1="380" y1="484" x2="290" y2="520" class="success"></line>
+  <polygon points="285,518 295,518 290,526" class="success"></polygon>
+
+  <line x1="380" y1="484" x2="470" y2="520" class="success"></line>
+  <polygon points="465,518 475,518 470,526" class="success"></polygon>
+
+  <!-- Vendor -->
+  <rect x="230" y="520" width="120" height="40" rx="10" class="box"></rect>
+  <text x="290" y="540" class="text">Vendor</text>
+
+  <!-- Fee -->
+  <rect x="410" y="520" width="120" height="40" rx="10" class="box"></rect>
+  <text x="470" y="540" class="text">Fee recipient</text>
+
+</svg>
